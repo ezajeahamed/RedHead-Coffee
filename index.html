@@ -1,3 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezaje Ahamed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #f9f5f0; /* Cream background */
+            color: #333; /* Dark text color */
+        }
+
+        header {
+            background: #000; /* Black background */
+            color: #f9f5f0; /* Cream text color */
+            padding: 20px 0;
+            border-bottom: 2px solid #333; /* Dark border for header */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            width: 80px;
+            height: auto;
+        }
+
+        header .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        header .nav-links li {
+            margin: 0 15px;
+        }
+
+        header .nav-links a {
+            color: #f9f5f0; /* Cream color */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header .nav-links a:hover {
+            color: #e0e0e0; /* Light cream color on hover */
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #000, #333); /* Black to dark grey gradient */
+            color: #f9f5f0; /* Cream text color */
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 2px solid #333;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin: 10px 0 30px;
+        }
+
+        .btn {
+            background: #f9f5f0; /* Cream background */
+            color: #333; /* Dark text color */
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background: #e0e0e0; /* Slightly darker cream */
+            color: #000; /* Dark text color */
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* About Section Styles */
+        .about {
+            background: #fff; /* White background */
+            color: #333;
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .about-content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .about-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content ul li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Skills Section Styles */
+        .skills {
+            background: #f9f5f0; /* Cream background */
+        }
+
+        .skills h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            cursor: grab; /* Show grab cursor */
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            display: flex;
+            width: 100%;
+            flex: 1 0 100%;
+        }
+
+        .skills .skill {
+            text-align: center;
+            flex: 1 1 calc(33.333% - 20px);
+            margin: 10px;
+            padding: 30px;
+            background: #fff; /* White background */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skills .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .skills .skill i {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: #000; /* Black color for icons */
+        }
+
+        .skills .skill h3 {
+            color: #333; /* Dark text color */
+            font-size: 24px;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #f9f5f0; /* Cream text color */
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 1000;
+        }
+
+        .carousel-control.prev {
+            left: 10px;
+        }
+
+        .carousel-control.next {
+            right: 10px;
+        }
+
+        .carousel.dragging {
+            cursor: grabbing; /* Show grabbing cursor while dragging */
+        }
+
+        /* Projects Section Styles */
+        .projects {
+            background: #fff; /* White background */
+            color: #333;
+            padding: 80px 20px;
+        }
+    
+        .projects h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+    
+        .projects .project-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+    
+        .projects .project-card {
+            background: #f9f5f0; /* Cream background */
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+    
+        .projects .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+    
+        .projects .project-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+    
+        .projects .project-card p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Contact Section Styles */
+        .contact {
+            background: #f9f5f0; /* Cream background */
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact input,
+        .contact textarea {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd; /* Light border */
+            border-radius: 10px;
+            background: #fff; /* White background for input fields */
+            color: #333; /* Dark text color */
+        }
+
+        .contact button {
+            background: #000; /* Black background */
+            color: #f9f5f0; /* Cream text color */
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .contact button:hover {
+            background: #333; /* Slightly lighter black */
+            color: #f9f5f0; /* Cream text color */
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #000; /* Black background */
+            color: #f9f5f0; /* Cream text color */
+            text-align: center;
+            padding: 20px 0;
+            border-top: 2px solid #333; /* Dark border for footer */
+        }
+
+        footer a {
+            color: #f9f5f0; /* Cream text color */
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        footer a:hover {
+            color: #e0e0e0; /* Light cream color on hover */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -6,21 +340,19 @@
                 <img src="images/aab.jpg" alt="Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
-    </header>1
 
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Hello, I'm Ezaje Ahamed</h1>
-            <p>A final-year BCA student who loves to deep dive into tech stuff and always curious to know the internals.</p>
-            <a href="#contact" class="btn">Driven by Curiosity and Code</a>
-        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>A final-year BCA student who loves to deep dive into tech stuff and always curious to know the internals.</p>
+        <a href="#skills" class="btn">Driven by Curiosity and Code</a>
     </section>
 
     <section id="about" class="about">
@@ -40,107 +372,146 @@
     </section>
 
     <section id="skills" class="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item">
-                        <div class="skill">
-                            <i class="fab fa-java"></i>
-                            <h3>Java</h3>
-                        </div>
-                        <div class="skill">
-                            <i class="fab fa-node-js"></i>
-                            <h3>Node.js</h3>
-                        </div>
-                        <div class="skill">
-                            <i class="fab fa-react"></i>
-                            <h3>React</h3>
-                        </div>
+        <h2>Skills</h2>
+        <div class="carousel">
+            <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <div class="skill">
+                        <i class="fab fa-java"></i>
+                        <h3>Java</h3>
                     </div>
-                    <div class="carousel-item">
-                        <div class="skill">
-                            <i class="fab fa-git"></i>
-                            <h3>Git</h3>
-                        </div>
-                        <div class="skill">
-                            <i class="fas fa-mobile-alt"></i>
-                            <h3>Flutter & Dart</h3>
-                        </div>
-                        <div class="skill">
-                            <i class="fab fa-android"></i>
-                            <h3>Android Development</h3>
-                        </div>
+                    <div class="skill">
+                        <i class="fab fa-python"></i>
+                        <h3>Python</h3>
                     </div>
-                    <div class="carousel-item">
-                        <div class="skill">
-                            <i class="fas fa-cogs"></i>
-                            <h3>DevOps</h3>
-                        </div>
-                        <div class="skill">
-                            <i class="fab fa-aws"></i>
-                            <h3>AWS</h3>
-                        </div>
-                        <div class="skill">
-                            <i class="fab fa-node-js"></i> <!-- Consider a better icon for Express -->
-                            <h3>Express.js</h3>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="skill">
-                            <i class="fas fa-database"></i>
-                            <h3>SQL</h3>
-                        </div>
-                        <div class="skill">
-                            <i class="fab fa-mongodb"></i>
-                            <h3>MongoDB</h3>
-                        </div>
+                    <div class="skill">
+                        <i class="fab fa-js"></i>
+                        <h3>JavaScript</h3>
                     </div>
                 </div>
-                <button class="carousel-control prev">&lt;</button>
-                <button class="carousel-control next">&gt;</button>
+                <div class="carousel-item">
+                    <div class="skill">
+                        <i class="fab fa-react"></i>
+                        <h3>React</h3>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-node-js"></i>
+                        <h3>Node.js</h3>
+                    </div>
+                    <div class="skill">
+                        <i class="fab fa-aws"></i>
+                        <h3>AWS</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="skill">
+                        <i class="fab fa-git-alt"></i>
+                        <h3>Git</h3>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-cogs"></i>
+                        <h3>DevOps</h3>
+                    </div>
+                    <div class="skill">
+                        <i class="fas fa-database"></i>
+                        <h3>Database</h3>
+                    </div>
+                </div>
             </div>
+            <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
     <section id="projects" class="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-cards">
-                <div class="project-card">
-                    <h3>Abhi kaam chal rha hain</h3>
-                    <p>Description of project 1. This project involved using React and Node.js to build a full-stack application.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Ispe bhi kaam chaalu hain</h3>
-                    <p>Description of project 2. This project focused on Android development with Kotlin to create a mobile app.</p>
-                </div>
-                <div class="project-card">
-                    <h3>yeh toh abhi suru hi kya hain</h3>
-                    <p>Description of project 3. This project utilized AWS and DevOps practices for cloud deployment and management.</p>
-                </div>
+        <h2>Projects</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <h3>Project One</h3>
+                <p>A description of my project.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>A description of my project.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Three</h3>
+                <p>A description of my project.</p>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <form action="https://formspree.io/your-email" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+        <h2>Contact Me</h2>
+        <form action="https://formspree.io/f/{your-id}" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Ezaje Ahamed. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/ezajeahamed" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/ezajeahamed" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
+    <footer></footer>
+        <p>Connect with me on:</p>
+        <a href="https://linkedin.com/in/ezajeahamed"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/ezajeahamed"><i class="fab fa-github"></i></a>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const prevButton = document.querySelector('.carousel-control.prev');
+            const nextButton = document.querySelector('.carousel-control.next');
+            const carouselInner = document.querySelector('.carousel-inner');
+            const items = document.querySelectorAll('.carousel-item');
+            let currentIndex = 0;
+            let startX;
+            let scrollLeft;
+            let isDragging = false;
+
+            function updateCarousel() {
+                const offset = -currentIndex * 100;
+                carouselInner.style.transform = `translateX(${offset}%)`;
+            }
+
+            prevButton.addEventListener('click', function() {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+                updateCarousel();
+            });
+
+            nextButton.addEventListener('click', function() {
+                currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            });
+
+            // Initialize carousel position
+            updateCarousel();
+
+            // Handle dragging functionality
+            carouselInner.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.pageX - carouselInner.offsetLeft;
+                scrollLeft = carouselInner.scrollLeft;
+                carouselInner.classList.add('dragging');
+            });
+
+            carouselInner.addEventListener('mouseleave', () => {
+                isDragging = false;
+                carouselInner.classList.remove('dragging');
+            });
+
+            carouselInner.addEventListener('mouseup', () => {
+                isDragging = false;
+                carouselInner.classList.remove('dragging');
+            });
+
+            carouselInner.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.pageX - carouselInner.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll speed
+                carouselInner.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+</body>
+</html>
